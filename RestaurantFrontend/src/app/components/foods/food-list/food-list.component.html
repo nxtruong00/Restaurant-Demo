@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-xs-12">
+    <button class="btn btn-success" (click)="onNewFood()">New Food</button>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-xs-12">
+    <app-food-item *ngFor="let foodEl of foods;let i=index"
+                   [food]="foodEl"
+                   [index]="foodEl.id"
+    ></app-food-item>
+    <div>
+      <ul class="nav nav-pills">
+        <li class="nav-item" *ngFor="let page of pages">
+          <a href="" class="nav-link" (click)="setPage(page,$event)"
+          [ngClass]="{'active':page}"
+          >{{page}}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+

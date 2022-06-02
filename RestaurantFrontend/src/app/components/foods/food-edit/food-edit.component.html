@@ -1,0 +1,116 @@
+<div class="row">
+  <div class="col-xs-12">
+    <form [formGroup]="foodForm" *ngIf="foodForm" (ngSubmit)="onSubmit()" >
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text"
+                   id="name"
+                   formControlName="name"
+                   class="form-control">
+          </div>
+        </div>
+      </div>
+
+<!--      <div class="container row">-->
+<!--        <div class="col-md-12">-->
+<!--          <h1>Upload Image</h1>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      <div class="container row">-->
+<!--        <div class="col-md-6">-->
+<!--          <input type="file" (change)="onFileChanged($event)">-->
+
+<!--          <img [src]="imgURL" height="200" *ngIf="imgURL">-->
+<!--        </div>-->
+<!--        <div class="col-md-6">-->
+<!--          <input type="button" (click)="onUpload()" value="upload">-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <hr />-->
+<!--      <div class="container row">-->
+<!--        <div class="col-md-12">-->
+<!--          <div *ngIf=message>{{message}}</div>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      <div class="container row">-->
+<!--        <div class="col-md-6">-->
+<!--          <input type="text" class="form-control" id="name" placeholder="image name" [(ngModel)]="imageName"-->
+<!--                 name="name" />-->
+<!--        </div>-->
+<!--        <div class="col-md-6">-->
+<!--          <input type="button" (click)="getImage()" value="Get Image">-->
+
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      <div class="container row">-->
+<!--        <div class="col-md-12">-->
+<!--          <div *ngIf=retrievedImage>-->
+<!--            <img [src]="retrievedImage">-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="imagePath">Image URL</label>
+            <input type="text"
+                   id="imagePath"
+                   formControlName="imagePath"
+                   class="form-control"
+                   #imagePath>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <img [src]="imagePath.value" alt="" class="img-responsive">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea
+              id="description"
+              class="form-control"
+              formControlName="description"
+              rows="6"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3">
+          <div class="form-group">
+            <label for="price">Price</label>
+            <input type="text"
+                   id="price"
+                   formControlName="price"
+                   class="form-control">
+            <span style="float: right"> VNĐ</span>
+          </div>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <button
+            type="submit"
+            class="btn btn-success"
+            [disabled]="!foodForm.valid"
+            style="margin-right: 4px">Save
+          </button>
+          <button type="button"
+                  class="btn btn-danger"
+                  (click)="onCancel()">Cancel</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

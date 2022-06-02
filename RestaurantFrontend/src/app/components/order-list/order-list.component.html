@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-xs-10">
+    <app-order-edit [hidden]="!editMode"></app-order-edit>
+    <hr>
+    <table class="table table-striped">
+      <thead style="color: #fff;background-color: #343a40;border-color:#454d55 ">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">ORDER</th>
+        <th scope="col">PRICE</th>
+        <th scope="col">QUANTITY</th>
+        <th scope="col">TOTAL</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let order of orders;let i=index">
+        <td>{{i + 1}}</td>
+        <td>{{order.getFood().name}}</td>
+        <td>{{order.getFood().price}} VND</td>
+        <td>{{order.getQuantity()}}</td>
+
+        <td>{{order.getFood().price * order.getQuantity()}} VND
+          <span style="float: right">
+          <button style="margin-right: 4px" class="btn btn-primary" (click)="onEditItem(i)">Edit</button>
+          <button class="btn btn-danger" (click)="onDelete(i)">Delete</button>
+        </span>
+        </td>
+      </tr>
+
+      </tbody>
+    </table>
+    <hr>
+    <div style="float: right;margin-top: 50px">Total:{{total}} VND</div>
+
+    <div>
+      <button class="btn btn-success btn-lg" style="float:right;margin-top: 100px">Order</button>
+    </div>
+  </div>
+
+</div>

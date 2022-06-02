@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-xs-12">
+<!--    <img [src]="food.imagePath" alt="{{food.food_name}}" class="img-responsive" style="max-height: 300px">-->
+    <img [src]="food?.imagePath" alt="{{food?.name}}" class="img-responsive" style="max-height: 400px;width: 100%;">
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <h1>{{food?.name}}</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    {{food?.description}}
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">Giá:
+    {{food?.price}} VND
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="btn-group"
+         appDropdown>
+      <button type="button"
+              class="btn btn-primary dropdown-toggle" *ngIf="isAdmin()">
+        Manage Food <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a style="cursor: pointer" (click)="onEditFood()">Edit Food</a></li>
+        <li><a style="cursor: pointer" (click)="onDeleteFood()">Delete Food</a></li>
+      </ul>
+    </div>
+    <button class="btn btn-info" (click)="onAddToShoppingList()"  style="cursor: pointer ;float: right">Add To Order</button>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+<div class="container">
+  <h1 class="mx-auto text-center mb-5">Login</h1>
+  <div class="card card-container">
+    <img id="profile-img"
+         class="profile-img-card"
+         src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+         alt=""/>
+
+    <p id="profile-name"
+       class="profile-name-card"></p>
+    <form class="form-signin" action="" (submit)="logIn()" [formGroup]="loginForm">
+      <input type="text"
+             id="username"
+             name="username"
+             class="form-control"
+             placeholder="Username"
+             formControlName="username"
+             required autofocus
+             >
+
+      <input type="password"
+             id="password"
+             name="password"
+             class="form-control"
+             placeholder="Password"
+             formControlName="password"
+      >
+      <div>
+        <p>Not a member? <a href="#!">Register</a></p>
+      </div>
+      <small
+        *ngIf="error"
+        style="text-align: center;"
+        class="alert-danger p-2 m-5 rounded"
+      >{{error}}</small>
+
+      <button class="btn btn-lg btn-primary btn-block btn-signing" type="submit">Sign in</button>
+    </form>
+    <a href="#" class="forgot-password">
+      Forgot the password?
+    </a>
+  </div>
+</div>
