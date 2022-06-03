@@ -1,10 +1,10 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Food} from "../../../shared/food.model";
+import {Food} from "../../../model/food.model";
 import {FoodService} from "../../../services/food.service";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {AuthService} from "../../../services/auth.service";
 import {Subscription} from "rxjs";
-import {User} from "../../../shared/user.model";
+import {User} from "../../../model/user.model";
 
 @Component({
   selector: 'app-recipe-detail',

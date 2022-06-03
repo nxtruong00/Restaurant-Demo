@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core'
 import {OrderListService} from "../../services/order-list.service";
 import {Subscription} from "rxjs";
-import {Order} from "../../shared/order.model";
+import {Order} from "../../model/order.model";
 
 @Component({
   selector: 'app-order-list',

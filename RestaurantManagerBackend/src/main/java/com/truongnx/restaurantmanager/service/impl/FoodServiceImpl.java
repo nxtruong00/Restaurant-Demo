@@ -1,5 +1,6 @@
 package com.truongnx.restaurantmanager.service.impl;
 
+import com.truongnx.restaurantmanager.dto.FoodListDto;
 import com.truongnx.restaurantmanager.exception.ResourceNotFoundException;
 import com.truongnx.restaurantmanager.model.Food;
 import com.truongnx.restaurantmanager.model.FoodForm;
@@ -38,13 +39,23 @@ public class FoodServiceImpl implements FoodService {
     }
 
     @Override
-    public List<Food> getFoods(int pageNo, int pageSize) {
-        Pageable paging = PageRequest.of(pageNo, pageSize);
-
-        Page<Food> pagedResult = foodRepository.findAll(paging);
-
-        return pagedResult.toList();
+    public FoodListDto getFoods(int pageNo, String keyWord) {
+        FoodListDto foodListDto = new FoodListDto();
+        Pageable paging = PageRequest.of(pageNo, 5);
+        List<Food> pagedResult = null;
+        int pages;
+        if (keyWord.length() == 0) {
+            pagedResult = foodRepository.findAll(paging).toList();
+            pages = (int) Math.ceil((double) getTotalFoods() / 5);
+        } else {
+            pagedResult = foodRepository.searchFoodByKeyWord(keyWord, paging).toList();
+            pages = (int) Math.ceil((double) foodRepository.countFoodByKeyWord(keyWord)/5);
+        }
+        foodListDto.setListFood(pagedResult);
+        foodListDto.setTotalPage(pages);
+        return foodListDto;
     }
+
 
     @Override
     public Food getFoodById(String foodId) throws ResourceNotFoundException {

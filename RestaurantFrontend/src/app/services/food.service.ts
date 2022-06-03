@@ -1,4 +1,4 @@
-import {Food} from "../shared/food.model";
+import {Food} from "../model/food.model";
 import {Injectable} from "@angular/core";
 
 import {Observable, Subject} from "rxjs";
@@ -20,8 +20,8 @@ export class FoodService {
     this.foodsUrl = 'http://localhost:9000/foods/'
   }
 
-  public findAll(page: number): Observable<any> {
-    return this.http.get<any>(this.foodsUrl + "?page="+page )
+  public findAll(page: number,keyWord:string): Observable<any> {
+    return this.http.get<any>(this.foodsUrl + "?page="+page+"&keyWord="+keyWord )
   }
 
 

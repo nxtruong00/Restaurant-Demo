@@ -1,8 +1,8 @@
 // import {food} from "../shared/food.model";
 
 import {Subject} from "rxjs";
-import {Food} from "../shared/food.model";
-import {Order} from "../shared/order.model";
+import {Food} from "../model/food.model";
+import {Order} from "../model/order.model";
 
 export class OrderListService {
   orderChanged = new Subject<Order[]>()

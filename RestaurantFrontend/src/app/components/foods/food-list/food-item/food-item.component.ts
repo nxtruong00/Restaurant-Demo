@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Food} from "../../../../shared/food.model";
+import {Food} from "../../../../model/food.model";
 
 
 @Component({

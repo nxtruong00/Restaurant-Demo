@@ -1,9 +1,10 @@
-import {Component, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
+import {Component, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewChild} from '@angular/core';
 
 import {ActivatedRoute, Router} from "@angular/router";
 import {Subscription} from "rxjs";
-import {Food} from "../../../shared/food.model";
+
 import {FoodService} from "../../../services/food.service";
+import {Food} from "../../../model/food.model";
 
 @Component({
   selector: 'app-food-list',
@@ -13,6 +14,7 @@ import {FoodService} from "../../../services/food.service";
 export class FoodListComponent implements OnInit {
   private page: number = 0
   foods: Food[];
+  keyWord:string="";
   pages: number[];
   totalPages: number;
   subscription: Subscription;
@@ -33,7 +35,7 @@ export class FoodListComponent implements OnInit {
   }
 
   getFoods() {
-    this.foodService.findAll(this.page)
+    this.foodService.findAll(this.page,this.keyWord)
       .subscribe(data => {
           this.foods = data.listFood;
           this.totalPages = data.totalPage;

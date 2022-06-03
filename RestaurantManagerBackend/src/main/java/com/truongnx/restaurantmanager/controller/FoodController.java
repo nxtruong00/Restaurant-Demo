@@ -35,12 +35,10 @@ public class FoodController {
 
     @GetMapping(value = "/foods")
     @PreAuthorize("isAuthenticated()")
-    public ResponseEntity<FoodListDto> getFoods(@RequestParam() int page) {
+    public ResponseEntity<FoodListDto> getFoods(@RequestParam("page") int page,@RequestParam(name = "keyWord",defaultValue = "") String keyWord) {
         FoodListDto listFoodDto = new FoodListDto();
-        List<Food> list = foodService.getFoods(page, 5);
 
-        listFoodDto.setListFood(list);
-        listFoodDto.setTotalPage((int) Math.ceil((double) foodService.getTotalFoods() / 5));
+        listFoodDto=foodService.getFoods(page,keyWord);
 
         return new ResponseEntity<>(listFoodDto, HttpStatus.OK);
     }

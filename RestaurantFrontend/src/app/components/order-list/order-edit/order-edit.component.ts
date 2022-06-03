@@ -3,7 +3,7 @@ import {Component, OnDestroy, OnInit, ViewChild} from "@angular/core"
 import {OrderListService} from "../../../services/order-list.service";
 import {NgForm} from "@angular/forms";
 import {Subscription} from "rxjs";
-import {Order} from "../../../shared/order.model";
+import {Order} from "../../../model/order.model";
 
 @Component({
   selector: 'app-order-edit',

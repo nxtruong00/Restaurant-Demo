@@ -1,7 +1,7 @@
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import {User} from "../shared/user.model";
+import {User} from "../model/user.model";
 
 
 @Injectable({

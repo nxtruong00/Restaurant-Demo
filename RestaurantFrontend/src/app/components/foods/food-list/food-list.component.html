@@ -1,9 +1,21 @@
+<div class="input-group">
+  <input type="search" id="search" class="form-control" placeholder="Keyword" [(ngModel)]="keyWord">
+  <span class="input-group-btn">
+<button class="btn btn-primary" type="button" (click)="getFoods()"><span class="glyphicon glyphicon-search" aria-hidden="true">
+</span> Search!</button>
+</span>
+</div>
+<br>
+
 <div class="row">
   <div class="col-xs-12">
     <button class="btn btn-success" (click)="onNewFood()">New Food</button>
   </div>
 </div>
+<br>
+<p [hidden]="totalPages!=0" style="color: red">Không tìm thấy kết quả</p>
 <hr>
+
 <div class="row">
   <div class="col-xs-12">
     <app-food-item *ngFor="let foodEl of foods;let i=index"
@@ -14,7 +26,7 @@
       <ul class="nav nav-pills">
         <li class="nav-item" *ngFor="let page of pages">
           <a href="" class="nav-link" (click)="setPage(page,$event)"
-          [ngClass]="{'active':page}"
+             [ngClass]="{'active':page}"
           >{{page}}</a>
         </li>
       </ul>

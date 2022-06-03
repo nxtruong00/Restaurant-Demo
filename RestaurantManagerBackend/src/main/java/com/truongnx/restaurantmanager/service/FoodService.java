@@ -1,5 +1,6 @@
 package com.truongnx.restaurantmanager.service;
 
+import com.truongnx.restaurantmanager.dto.FoodListDto;
 import com.truongnx.restaurantmanager.exception.ResourceNotFoundException;
 import com.truongnx.restaurantmanager.model.Food;
 import com.truongnx.restaurantmanager.model.FoodForm;
@@ -16,7 +17,7 @@ public interface FoodService {
 
     public void deleteFood(String foodId);
 
-    public List<Food>getFoods(int pageNo, int pageSize);
+    public FoodListDto getFoods(int pageNo, String keyWord);
 
     public int getTotalFoods();
 
